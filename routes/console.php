@@ -17,3 +17,7 @@ use Illuminate\Support\Facades\Artisan;
 Artisan::command('inspire', function () {
     $this->comment(Inspiring::quote());
 })->purpose('Display an inspiring quote');
+
+Artisan::command('closure:test {param}', function ($param) {
+    print_r($param . __FILE__ . __METHOD__ .  __FUNCTION__ .  __LINE__ . '<br>');
+})->purpose('闭包命名的注释，相当于command类的description值');
