@@ -4,9 +4,11 @@ namespace App\Http\Controllers;
 
 use App\Enums\PageEnums;
 use App\Requests\BaseRequest;
+use App\Traits\LoggerTrait;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Routing\Controller as BaseController;
+use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Support\Facades\Validator;
 
 class Controller extends BaseController
