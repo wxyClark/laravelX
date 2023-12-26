@@ -134,3 +134,4 @@ SQLSTATE[HY000] [2002] Connection refused (SQL: select * from information_schema
 ## 宿主机
 
 * WSL2项目文件路径 \\wsl.localhost\OracleLinux_8_5
+* WSL2项目文件路径 \\wsl.localhost\Ubuntu-22.04\home

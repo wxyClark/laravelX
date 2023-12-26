@@ -12,15 +12,17 @@ class ErrorCodeEnums
         self::HTTP_STATUS_CODE_SEND_SUCCESS => '请求发送成功',
     ];
 
+    //  不怕一万，就怕万一
+    const ERROR_CODE_SUCCESS = 10000;
     //  默认错误
-    const ERROR_CODE_DEFAULT = 999999;
+    const ERROR_CODE_DEFAULT = 10001;
 
     //  参数错误
-    const ERROR_CODE_PARAMS_EMPTY = 100000;
-    const ERROR_CODE_PARAMS_INVALID = 100001;
-    const ERROR_CODE_PARAMS_OUT_OF_RANGE = 100002;
-    const ERROR_CODE_PARAMS_PAGINATION_NOT_EXIST = 100003;
-    const ERROR_CODE_PARAMS_RECORD_NOT_EXIST = 100004;
+    const ERROR_CODE_PARAMS_EMPTY = 1000;
+    const ERROR_CODE_PARAMS_INVALID = 1001;
+    const ERROR_CODE_PARAMS_OUT_OF_RANGE = 1002;
+    const ERROR_CODE_PARAMS_PAGINATION_NOT_EXIST = 1003;
+    const ERROR_CODE_PARAMS_RECORD_NOT_EXIST = 1004;
     const ERROR_CODE_PARAMS_ARR = [
         self::ERROR_CODE_PARAMS_EMPTY,
         self::ERROR_CODE_PARAMS_INVALID,
@@ -30,22 +32,29 @@ class ErrorCodeEnums
     ];
 
     //  业务逻辑错误
-    const ERROR_CODE_RECORD_OPERATION_NOT_SUPPORTED = 200001;
-    const ERROR_CODE_RECORD_IS_IN_LOCK = 200002;
-    const ERROR_CODE_TRANSACTION_COMMIT_FAILED = 200003;
-    const ERROR_CODE_UPDATE_ROW_OUT_OF_RANGE = 200004;
+    const ERROR_CODE_RECORD_OPERATION_NOT_SUPPORTED = 20001;
+    const ERROR_CODE_RECORD_IS_IN_LOCK = 20002;
+    const ERROR_CODE_TRANSACTION_COMMIT_FAILED = 20003;
+    const ERROR_CODE_UPDATE_ROW_OUT_OF_RANGE = 20004;
 
     //  网络错误
-    const ERROR_CODE_MYSQL_IS_GONE = 300001;
-    const ERROR_CODE_REDIS_IS_GONE = 300002;
-    const ERROR_CODE_MEMCACHED_IS_GONE = 300003;
-    const ERROR_CODE_KAFKA_IS_GONE = 300004;
+    const ERROR_CODE_MYSQL_IS_GONE = 30001;
+    const ERROR_CODE_REDIS_IS_GONE = 30002;
+    const ERROR_CODE_MEMCACHED_IS_GONE = 30003;
+    const ERROR_CODE_KAFKA_IS_GONE = 30004;
 
-    //  内部调用错误
-    const ERROR_CODE_INNER_API_OUT_OF_TIME = 400001;
-    const ERROR_CODE_INNER_API_INNER_ERROR = 400002;
-    const ERROR_CODE_THIRD_PARTY_API_OUT_OF_TIME = 400003;
-    const ERROR_CODE_THIRD_PARTY_API_ERROR = 400004;
+    //  接口调用错误
+    const ERROR_CODE_INNER_API_TIMEOUT = 40001;
+    const ERROR_CODE_INNER_API_INNER_ERROR = 40002;
+    const ERROR_CODE_THIRD_PARTY_API_TIMEOUT = 40003;
+    const ERROR_CODE_THIRD_PARTY_API_ERROR = 40004;
+
+    //  服务器错误
+    const ERROR_CODE_SERVER_INNER_ERROR = 50001;
+    const ERROR_CODE_SERVER_LOCK = 50002;
+    const ERROR_CODE_SERVER_TIMEOUT = 50003;
+    const ERROR_CODE_SERVER_TRANSACTION_FAILED = 50004;
+    const ERROR_CODE_SERVER_DB_ERROR = 50005;
 
     const ERROR_CODE_MAP = [
         self::ERROR_CODE_DEFAULT                 => '成功',
@@ -66,10 +75,16 @@ class ErrorCodeEnums
         self::ERROR_CODE_MEMCACHED_IS_GONE => 'Memcached连接失败',
         self::ERROR_CODE_KAFKA_IS_GONE     => 'Kafka连接失败',
 
-        self::ERROR_CODE_INNER_API_OUT_OF_TIME       => '内部调用超时',
-        self::ERROR_CODE_INNER_API_INNER_ERROR       => '内部调用报错',
-        self::ERROR_CODE_THIRD_PARTY_API_OUT_OF_TIME => '第三方接口超时',
-        self::ERROR_CODE_THIRD_PARTY_API_ERROR       => '第三方接口报错',
+        self::ERROR_CODE_INNER_API_TIMEOUT       => '内部调用超时',
+        self::ERROR_CODE_INNER_API_INNER_ERROR   => '内部调用报错',
+        self::ERROR_CODE_THIRD_PARTY_API_TIMEOUT => '第三方接口超时',
+        self::ERROR_CODE_THIRD_PARTY_API_ERROR   => '第三方接口报错',
+
+        self::ERROR_CODE_SERVER_INNER_ERROR        => '服务器内部错误',
+        self::ERROR_CODE_SERVER_LOCK               => '服务器锁错误',
+        self::ERROR_CODE_SERVER_TIMEOUT            => '服务器超时',
+        self::ERROR_CODE_SERVER_TRANSACTION_FAILED => '服务器事务提交失败',
+        self::ERROR_CODE_SERVER_DB_ERROR           => '服务器数据库错误',
     ];
 
     /**
